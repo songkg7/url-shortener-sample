@@ -1,0 +1,8 @@
+#spring:
+#  cloud:
+#    openfeign:
+#      lazy-attributes-resolution: true
+
+spring:
+  jpa:
+    open-in-view: false
