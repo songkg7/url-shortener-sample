@@ -21,10 +21,9 @@ class ShortenController(
 
     @GetMapping("{shortUrl}")
     fun redirect(@PathVariable shortUrl: String): ResponseEntity<Unit> {
-        urlShortenService.redirect(shortUrl)?.let {
+        urlShortenService.redirect(shortUrl).let {
             return ResponseEntity.status(302).header(HttpHeaders.LOCATION, it).build()
         }
-        return ResponseEntity.notFound().build()
     }
 
 }

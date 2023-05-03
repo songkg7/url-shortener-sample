@@ -23,7 +23,7 @@ class UrlShortenService(
             }.shortUrl
     }
 
-    fun redirect(shortUrl: String): String? {
+    fun redirect(shortUrl: String): String {
         val id = conversion.decode(shortUrl)
         return urlPairRepository.findById(id)
             .map { it.longUrl }
