@@ -32,7 +32,7 @@ class UrlShortenServiceTest : FreeSpec() {
             "새로운 UrlPair 를 생성하고 shortUrl 을 반환한다." {
                 every { urlPairRepository.save(any<UrlPair>()) } returns UrlPair(1, "2TX", "https://www.naver.com")
                 val shortUrl = urlShortenService.shorten("https://www.naver.com")
-                shortUrl.length shouldBeLessThanOrEqual 7
+                shortUrl shouldBe "2TX"
                 verify(exactly = 1) { urlPairRepository.save(any<UrlPair>()) }
             }
         }
