@@ -14,7 +14,7 @@ $ docker compose up -d
 curl -X POST --location "http://localhost:8080/api/v1/shorten" \
     -H "Content-Type: application/json" \
     -d "{
-            \"longUrl\": \"https://www.google.com\"
+            \"longUrl\": \"https://www.google.com/search?q=url+shortener&sourceid=chrome&ie=UTF-8\"
         }"
 ```
 
