@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository
 import java.util.*
 
 @Repository
-interface UrlPairRepository : JpaRepository<UrlPair, Ulid> {
+interface UrlPairRepository : JpaRepository<UrlPair, Long> {
     fun findByLongUrl(longUrl: String): Optional<UrlPair>
 }
 

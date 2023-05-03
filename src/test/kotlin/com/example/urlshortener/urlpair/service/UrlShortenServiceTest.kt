@@ -19,7 +19,7 @@ class UrlShortenServiceTest : FreeSpec() {
     init {
         val urlShortenService = UrlShortenService(urlPairRepository)
         "longUrl 이 이미 DB 에 존재하면" - {
-            val urlPair = UrlPair.from("https://www.naver.com")
+            val urlPair = UrlPair(1, "2TX", "https://www.naver.com")
             every { urlPairRepository.findByLongUrl(any()) } returns Optional.of(urlPair)
             "shortUrl 을 반환한다." {
                 val shortUrl = urlShortenService.shorten("https://www.naver.com")
@@ -30,7 +30,7 @@ class UrlShortenServiceTest : FreeSpec() {
         "longUrl 이 DB 에 존재하지 않는다면" - {
             every { urlPairRepository.findByLongUrl(any()) } returns Optional.empty()
             "새로운 UrlPair 를 생성하고 shortUrl 을 반환한다." {
-                every { urlPairRepository.save(any<UrlPair>()) } returns UrlPair.from("https://www.naver.com")
+                every { urlPairRepository.save(any<UrlPair>()) } returns UrlPair(1, "2TX", "https://www.naver.com")
                 val shortUrl = urlShortenService.shorten("https://www.naver.com")
                 shortUrl.length shouldBeLessThanOrEqual 7
                 verify(exactly = 1) { urlPairRepository.save(any<UrlPair>()) }

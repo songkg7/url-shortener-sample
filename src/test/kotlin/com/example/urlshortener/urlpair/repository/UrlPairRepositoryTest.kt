@@ -17,12 +17,12 @@ class UrlPairRepositoryTest(
     init {
         "findByLongUrl" - {
             "longUrl 이 존재하면" - {
-                urlPairRepository.save(UrlPair.from("https://www.naver.com"))
+                urlPairRepository.save(UrlPair(1, "2TX", "https://www.naver.com"))
                 "UrlPair 를 반환한다." {
                     val urlPair = urlPairRepository.findByLongUrl("https://www.naver.com")
                     urlPair.isPresent shouldBe true
                     urlPair.get().longUrl shouldBe "https://www.naver.com"
-                    urlPair.get().shortUrl.length shouldNotBe null
+                    urlPair.get().shortUrl shouldNotBe null
                 }
             }
             "longUrl 이 존재하지 않으면" - {
