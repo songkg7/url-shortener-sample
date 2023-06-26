@@ -19,5 +19,5 @@ curl -X POST --location "http://localhost:8080/api/v1/shorten" \
 ```
 
 ```bash
-curl -X GET "http://localhost:8080/api/v1/{{shortUrl}}"
+curl -X GET "http://localhost:8080/{{shortUrl}}"
 ```
