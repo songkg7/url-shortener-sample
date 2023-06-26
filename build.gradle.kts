@@ -26,6 +26,7 @@ dependencies {
 	runtimeOnly("com.mysql:mysql-connector-j")
 
 	testImplementation("io.mockk:mockk:1.13.4")
+	testImplementation("com.ninja-squad:springmockk:4.0.2")
 	testImplementation("io.kotest:kotest-runner-junit5-jvm:5.5.5")
 	testImplementation("io.kotest:kotest-assertions-core-jvm:5.5.5")
 	testImplementation("io.kotest.extensions:kotest-extensions-spring:1.1.2")

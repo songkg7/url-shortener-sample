@@ -8,12 +8,11 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/api/v1")
 class ShortenController(
     private val urlShortenService: UrlShortenService
 ) {
 
-    @PostMapping("/shorten")
+    @PostMapping("/api/v1/shorten")
     fun shorten(@RequestBody request: ShortenRequest): ResponseEntity<ShortenResponse> {
         val url = urlShortenService.shorten(request.longUrl)
         return ResponseEntity.ok(ShortenResponse(url))
