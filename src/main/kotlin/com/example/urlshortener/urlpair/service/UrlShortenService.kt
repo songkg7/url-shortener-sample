@@ -6,14 +6,17 @@ import com.example.urlshortener.urlpair.entity.UrlPair
 import com.example.urlshortener.urlpair.repository.UrlPairRepository
 import com.github.f4b6a3.ulid.Ulid
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 
 @Service
+@Transactional(readOnly = true)
 class UrlShortenService(
     private val urlPairRepository: UrlPairRepository,
 ) {
 
     private val conversion: Conversion = Base62Conversion()
 
+    @Transactional
     fun shorten(longUrl: String): String {
         return urlPairRepository.findByLongUrl(longUrl)
             .orElseGet {
