@@ -6,8 +6,8 @@
 
 ## Quick Start
 
-```bash
-$ docker compose up -d
+```shell
+docker run -d --rm -p 8080:8080 --name tinyurl songkg7/url-shortener
 ```
 
 ```bash

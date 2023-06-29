@@ -49,6 +49,6 @@ jib {
 		image = "songkg7/url-shortener:latest"
 	}
 	container {
-		jvmFlags = listOf("-Xms512m", "-Xmx512m", "-Dspring.profiles.active=docker")
+		jvmFlags = listOf("-Xms512m", "-Xmx512m", "-Dspring.profiles.active=local")
 	}
 }
