@@ -22,6 +22,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("com.github.f4b6a3:ulid-creator:5.2.0")
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.+")
 	runtimeOnly("com.h2database:h2")
 	runtimeOnly("com.mysql:mysql-connector-j")
 
