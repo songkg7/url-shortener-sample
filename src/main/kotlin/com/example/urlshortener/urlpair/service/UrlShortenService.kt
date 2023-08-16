@@ -20,7 +20,7 @@ class UrlShortenService(
     fun shorten(longUrl: String): String {
         return urlPairRepository.findByLongUrl(longUrl)
             .orElseGet {
-                val id = Ulid.fast().mostSignificantBits
+                val id = Ulid.fast().time
                 val shortUrl = conversion.encode(id)
                 urlPairRepository.save(UrlPair(id, shortUrl, longUrl))
             }.shortUrl
